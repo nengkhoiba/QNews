@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+@font-face {
+    font-family: robotolight;
+    src: url(../css/font/Roboto-Light.ttf);
+}
+@font-face {
+    font-family: robotothin;
+    src: url(../css/font/Roboto-Thin.ttf);
+}
+body{
+	margin: 0;
+	padding: 0;
+    font-family: robotolight;
+}
+.upper img{
+	width: 100%;
+}
+.lower{
+    padding: 2px 20px;
+}
+.upper .contain{
+	padding: 2px 20px;
+    margin-top: -75px;
+    color: #FFFFFF;
+}
+.success{
+	text-align: center;
+	margin-top: 20px;
+}
+.success img{
+	width: 60%;
+}
+.readmore{
+	float: right;
+	text-decoration: none;
+}
