@@ -1,5 +1,5 @@
 <?php
-
+$base_url="http://localhost/Qnews";
 try
 {
 

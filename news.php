@@ -35,7 +35,7 @@ while($rows= mysqli_fetch_assoc($result))
 			<div class="upper">
 			<?php if($rows['image']!="" && $rows['image']!=null && $rows['image']!="NO"){
 					?>
-					<img src="images/<?php echo $rows['image'];?>">
+					<img src="<?php echo $rows['image'];?>">
 					<?php 
 				}?>
 				

@@ -1,7 +1,7 @@
 <?php include_once("config.php");
-
-$page=$_GET['p'];
 $user=$_GET['u'];
+$page=$_GET['p'];
+
 $count=10;
 $end=$page*10;
 $start=$end-10;
@@ -19,8 +19,8 @@ usr.Name AS posted_by,
 FROM content con
 LEFT JOIN category cat ON cat.ID=con.cat_id
 LEFT JOIN user usr ON usr.ID=con.posted_by
-WHERE con.isActive=1
-
+WHERE con.isActive=0
+AND con.posted_by=$user
 ORDER BY con.posted_on DESC
 		LIMIT $start,$count ";
 $result= mysqli_query($link, $sql);
