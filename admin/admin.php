@@ -74,16 +74,4 @@ include ("global_header.php");
 
         </div>
     </div>
-
-</body>
-	<script type="text/javascript">
-	$(document).ready(function(){
-		   $('[data-toggle="offcanvas"]').click(function(){
-		       $("#navigation").toggleClass("hidden-xs");
-		   });
-		});
-
-
-				
-	</script>
-</html>
+<?php include ("global_footer.php");?>
