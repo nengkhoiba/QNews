@@ -748,7 +748,6 @@ html [type="button"],
 </div>
 </nav>
 <div class="search hidden-xs hidden-sm">
-<input type="text" placeholder="Search" id="search">
 </div>
 </div>
 <div class="col-md-5">

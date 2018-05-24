@@ -20,7 +20,7 @@ include ("global_header.php");
         </thead>
         <tbody>
         <?php 
-		 $sql="SELECT `ID`, `cat_id`, `title`, `body`, `image`, `posted_on`, `posted_by`, `no_like`, `isActive` FROM `content` WHERE isActive=1";
+		 $sql="SELECT `ID`, `cat_id`, `title`, `body`, `image`, `posted_on`, `posted_by`, `no_like`, `isActive` FROM `content` WHERE 1 ORDER BY ID DESC";
         $result= mysqli_query($link, $sql);
 		if($result){
 			while($row = mysqli_fetch_assoc($result)){
@@ -34,10 +34,10 @@ include ("global_header.php");
                 <td><?php echo $row['posted_on'];?></td>
                 <td><?php echo $row['posted_by'];?></td>
                 <td><?php echo $row['no_like']?></td>
-                <?php if($row['isActive']==1){?>
-                <td> <a style="cursor: pointer;" class="label label-success">Publish</a> </td>
+                <?php if($row['isActive']==0){?>
+                <td> <a style="cursor: pointer;" href="enable.php?id=<?php echo $row['ID'];?>&flag=3" class="label label-success">Publish</a> </td>
                 <?php }else{?>
-				<td> <a style="cursor: pointer;" class="label label-danger">unpublish</a> </td>
+				<td> <a style="cursor: pointer;" href="enable.php?id=<?php echo $row['ID'];?>&flag=4" class="label label-danger">Unpublish</a> </td>
 			<?php }?>
 			    <td><i style="cursor: pointer" class="fa fa-remove"></i></td>
            </tr>

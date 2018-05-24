@@ -18,7 +18,7 @@ include ("global_header.php");
         </thead>
         <tbody>
         <?php 
-        $sql="SELECT `ID`, `name`, `profile_url`, `facebook_id`, `isActive` FROM `user` WHERE isActive='1'";
+        $sql="SELECT `ID`, `name`, `profile_url`, `facebook_id`, `isActive` FROM `user` WHERE 1";
 		$result= mysqli_query($link, $sql);
 		if($result){
 			while($row = mysqli_fetch_assoc($result)){
@@ -29,11 +29,11 @@ include ("global_header.php");
                 <td><?php echo $row['profile_url'];?></td>
                 <td><?php echo $row['facebook_id'];?></td>
                 <?php if($row['isActive']==1){?>
-                <td> <a style="cursor: pointer;" class="label label-success">Active</a> </td>
+                <td> <a style="cursor: pointer;" href="enable.php?id=+<?php echo $row['ID'];?>&flag=2" class="label label-success">Active</a> </td>
                 <?php }else{?>
-				<td> <a style="cursor: pointer;" class="label label-danger">Deactivate</a> </td>
+				<td> <a style="cursor: pointer;" href="enable.php?id=+<?php echo $row['ID'];?>&flag=1" class="label label-danger">Deactivate</a> </td>
 			<?php }?>
-			    <td><i style="cursor: pointer" class="fa fa-remove"></i></td>
+			    <td><a href="#"><i style="cursor: pointer" class="fa fa-remove"></i></a></td>
            </tr>
 				<?php
 			}
