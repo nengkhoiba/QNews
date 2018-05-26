@@ -124,7 +124,10 @@ if($_SESSION["Msg"]!=""){
 </div>
 </body>
 <script type="text/javascript">
-
+<?php 
+session_unset();
+session_destroy();
+?>
 
 </script>
 </html>

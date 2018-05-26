@@ -33,7 +33,7 @@ include ("global_header.php");
                 <?php }else{?>
 				<td> <a style="cursor: pointer;" href="enable.php?id=+<?php echo $row['ID'];?>&flag=1" class="label label-danger">Deactivate</a> </td>
 			<?php }?>
-			    <td><a href="#"><i style="cursor: pointer" class="fa fa-remove"></i></a></td>
+			    <td><a href="#"><i style="cursor: pointer" onclick="removeuser('<?php echo $row['ID'];?>')"class="fa fa-remove"></i></a></td>
            </tr>
 				<?php
 			}
@@ -45,4 +45,13 @@ include ("global_header.php");
 </div>
 
 <?php include ("global_footer.php");?>
- 
+ <script>
+ function removeuser(id){
+		$('#loading').show();
+		if(confirm("Confirm Delete?")){
+	  	//var url = "delete.php?id="+id+"&flag="+1;
+	  	document.location= "delete.php?id="+id+"&flag="+1;
+		}
+	} 	
+
+ </script>

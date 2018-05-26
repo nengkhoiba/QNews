@@ -8,6 +8,11 @@ $(document).ready(function(){
 	});
 });
 
+function logout(){
+	
+	//header("location:../login.php");
+	document.location= "../login.php";
+}
 	</script>
 	
 	<script src="https://code.jquery.com/jquery-1.12.4.js" rel="stylesheet" type="text/javascript"></script>
