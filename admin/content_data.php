@@ -4,17 +4,15 @@ include ("session_check.php");
 include ("global_header.php");
 ?>
 <div class="container ">
-	<table id="example" class="display" style="width:100%; margin-top:10px;">
+	<table id="example" class="display" style=" margin-top:10px;">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Category</th>
                 <th>Title</th>
                 <th>Body</th>
                 <th>Image</th>
                 <th>Posted On</th>
                 <th>Posted By</th>
-                <th>Likes</th>
                 <th>isActive</th>
                 <th>Remove</th>
                 <th>Preview</th>
@@ -23,10 +21,11 @@ include ("global_header.php");
         <tbody>
         <?php 
 		 $sql="SELECT con.ID as ID, con.cat_id, con.title as title, con.body as body, con.image as image, 
-				con.posted_on as posted_on, con.posted_by as posted_by, con.no_like as no_like, con.isActive as isActive, 
+				con.posted_on as posted_on, user.name as posted_by, con.no_like as no_like, con.isActive as isActive, 
 				cat.Name as Name
 				FROM content as con 
 				LEFT JOIN category as cat on cat.ID = con.cat_id
+				LEFT JOIN user user on user.ID=con.posted_by
 				WHERE 1 
 				 ORDER BY ID DESC";
         $result= mysqli_query($link, $sql);
@@ -34,14 +33,12 @@ include ("global_header.php");
 			while($row = mysqli_fetch_assoc($result)){
 				?>
 			<tr>
-                <td><?php echo $row['ID'];?></td>
                 <td><?php echo $row['Name'];?></td>
                 <td><?php echo $row['title'];?></td>
                 <td><?php echo $row['body'];?></td>
                 <td><?php echo $row['image'];?></td>
                 <td><?php echo $row['posted_on'];?></td>
                 <td><?php echo $row['posted_by'];?></td>
-                <td><?php echo $row['no_like']?></td>
                 <?php if($row['isActive']==0){?>
                 <td> <a style="cursor: pointer;" href="enable.php?id=<?php echo $row['ID'];?>&flag=3" class="label label-success">Publish</a> </td>
                 <?php }else{?>
